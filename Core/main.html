@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carla Control Centre</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    <header>
+        <div class="round-font" id="carla-logo">
+        </div>
+    </header>
+
+    <div class="left-container">
+        
+        <div class="readmeter-container">
+            <div class="speedmeter">
+                <strong>0</strong>
+                <p>m/s</p>
+            </div>
+
+            <div class="breakmeter">
+                <strong>0</strong>
+                <p>units</p>
+            </div>
+            <div class="capacity">
+                <strong>0 <sub>%</sub></strong>
+                <p>Out of 100%</p>
+            </div>
+        </div>
+        <hr style="padding: 0%; background-color: #d1d1d1;">
+        <div class="event-container">
+            
+            <div class="record-button event-button" onclick="eventrecordbutton()">
+                <label class="eventbuttoncheckbox-label">
+                    <div class="eventbuttoncheckbox-toggle">
+                      <input class="record-toggle-state eventbuttoncheckbox-toggle-state" type="checkbox" name="check" value="check" />
+                      <div class="eventbuttoncheckbox-indicator"></div>
+                    </div>
+                </label>
+                <div class="record"></div>
+                <strong id="recordtext">Record Sim</strong>
+                <p id="recordingstoppedtext"></p>
+            </div>
+
+            <div class="control-button event-button" onclick="eventcontrolclick()">
+                <label class="eventbuttoncheckbox-label">
+                    <div class="eventbuttoncheckbox-toggle">
+                      <input class="control-toggle-state eventbuttoncheckbox-toggle-state" type="checkbox" name="check" value="check" />
+                      <div class="eventbuttoncheckbox-indicator"></div>
+                    </div>
+                </label>
+                <div class="controlimg"> </div>
+                <strong>Control</strong>
+                <p id="controltext">Automatic</p>
+            </div>
+
+            <div class="active-button event-button" onclick="eventactiveclick()">
+                <label class="eventbuttoncheckbox-label">
+                    <div class="eventbuttoncheckbox-toggle">
+                      <input class="active-toggle-state eventbuttoncheckbox-toggle-state" type="checkbox" name="check" value="check" />
+                      <div class="eventbuttoncheckbox-indicator"></div>
+                    </div>
+                </label>
+                <div class="activeimg"> </div>
+                <strong>Active Rect.</strong>
+                <p id="activetext">Deactivated</p>
+            </div>
+
+            <div class="NPC-button event-button" onclick="eventNPCclick()">
+                <label class="eventbuttoncheckbox-label">
+                    <div class="eventbuttoncheckbox-toggle">
+                      <input class="NPC-toggle-state eventbuttoncheckbox-toggle-state" type="checkbox" name="check" value="check" />
+                      <div class="eventbuttoncheckbox-indicator"></div>
+                    </div>
+                </label>
+                <div class="NPCimg"> </div>
+                <strong>Spawn NPC</strong>
+                <p id="NPCtext">Despawned</p>
+            </div>
+
+        </div>
+       <div class="log-container">
+           Event Log
+            <div class="left-eventlog">
+                <div class="logreport">
+                </div>
+            </div>
+        </div>
+        <div class="left-info">
+            <div class="startstopsimulationbutton" onclick="startstopsimulation()">
+                <input type="checkbox" name="Start" id="startstopsimulationcheckbox">
+                <div id="startsimulationtext">
+                    Start Simulation
+                </div>
+            </div>
+            <div class="clearlogbutton" onclick="clearlogbutton()">
+                <input type="checkbox" name="Start" id="clearlogcheckbox">
+                <div id="clearlogtext">
+                    Clear Logs
+                </div>
+            </div>
+            <div class="existbutton" onclick="existbutton()">
+                <input type="checkbox" name="Start" id="existcheckbox">
+                <div id="existtext">
+                    Exist
+                </div>
+            </div>
+
+            
+        </div>
+
+    </div>
+
+    <div class ="configuration-container">
+        <div>
+            Simulation Configuration
+        </div>
+        <div class="extras-container">
+            <div>Extras</div>
+
+            <div class="extras-horizontal-container">
+                <div class="extras-container-text">
+                    Render Simulation 
+                </div>
+                <div>
+                    <label class="extras-label">
+                        <div class="extras-toggle">
+                            <input class="extras-toggle-state" onclick="render()" id="rendercheck"  type="checkbox" name="check" value="check" />
+                            <div class="extras-indicator"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="extras-horizontal-container">
+                <div class="extras-container-text">
+                    Syncronous Mode 
+                </div>
+                <div>
+                    <label class="extras-label">
+                        <div class="extras-toggle">
+                            <input class="extras-toggle-state" onclick="syncronous()" id="modecheck" type="checkbox" name="check" value="check" />
+                            <div class="extras-indicator"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="extras-horizontal-container">
+                <div class="extras-container-text">
+                    FPS 
+                </div>
+            </div>
+        </div>
+        <div class="map-container">
+            <div class="map-text">Select Town</div>
+                <div class="img-container" style="left: -165px;"> 
+                    <img src="img/track1.png" class="slider-image">
+                    <img src="img/track1.png" class="slider-image">
+                    <img src="img/track1.png" class="slider-image">
+                </div>
+                <div class="map-button-container">
+                    <input type="button" onclick="mapbtncontainer('1')" class="map-slider-button" id="map-button1">
+                    <input type="button" onclick="mapbtncontainer('2')" class="map-slider-button" id="map-button2">
+                    <input type="button" onclick="mapbtncontainer('3')" class="map-slider-button" id="map-button3">
+                </div>
+            
+        </div>
+        
+
+        <div class="Weather">
+            Weather Config
+            <div class="weather-button-container">
+                <div class="weather-button-container1 weather-toggle-button-img img1">
+                    
+                </div>
+                <div class="weather-button-container1 weather-toggle-text">
+                     Active Rain 
+                </div>
+                <div>
+                    <label class="weather-label"> 
+                        <div class="weather-toggle" >
+                          <input class="weather-toggle-state" onclick="activerain()" id="rainday"  type="checkbox" name="check" value="check" />
+                          <div class="weather-indicator"></div>
+                        </div>
+                    </label>
+                </div>
+            </div> 
+    
+            <div class="weather-button-container">
+                <div class="weather-button-container1 weather-toggle-button-img img2">
+                    
+                </div>
+                <div class="weather-button-container1 weather-toggle-text">
+                    Sunny Day
+                </div>
+                <div>
+                    <label class="weather-label">
+                        <div class="weather-toggle">
+                          <input class="weather-toggle-state" onclick="sunnyday()" id="sunnyday" type="checkbox" name="check" value="check" />
+                          <div class="weather-indicator" ></div>
+                        </div>
+                    </label>
+                </div>
+            </div> 
+        
+            <div class="weather-button-container">
+                <div class="weather-button-container1 weather-toggle-button-img img3">
+                    
+                </div>
+                <div class="weather-button-container1 weather-toggle-text">
+                    Foggy Day
+                </div>
+                <div>
+                    <label class="weather-label" >
+                        <div class="weather-toggle">
+                          <input class="weather-toggle-state" id="foggyday" onclick="foggyday()" type="checkbox" name="check" value="check" />
+                          <div class="weather-indicator"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        
+        </div>
+        
+
+        <div class="car-container">
+            <div class="car-text">Select Car</div>
+                <div class="car-img-container" style="left: -165px;">
+                    <img src="img/car1.png" class="car-slider-image">
+                    <img src="img/car2.png" class="car-slider-image">
+                    <img src="img/car3.png" class="car-slider-image">
+                </div>
+                <div class="car-button-container">
+                    <input type="button" onclick="carbtnonclick('1')" class="car-slider-button" id="car-button1">
+                    <input type="button" onclick="carbtnonclick('2')" class="car-slider-button" id="car-button2">
+                    <input type="button" onclick="carbtnonclick('3')" class="car-slider-button" id="car-button3">
+                </div>
+        </div>
+        <div class="apply-button">
+            <input type="button" value="Apply Changes" class="applybuttoninput" onclick="applyclick('True')">
+        </div>
+    </div>
+    
+    
+         
+     
+ 
+        
+</body>
+</html>
