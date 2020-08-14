@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="main.css">
     <script type="text/javascript" src="main.js"></script>
 </head>
-<body>
+<body onload="preload()"> 
+    <div class="preload"></div>
     <header>
         <div class="round-font" id="carla-logo">
         </div>
@@ -21,7 +22,7 @@
 
             <div class="breakmeter">
                 <strong>0</strong>
-                <p>units</p>
+                <p>Distance Traveled</p>
             </div>
             <div class="capacity">
                 <strong>0 <sub>%</sub></strong>
@@ -149,7 +150,22 @@
 
             <div class="extras-horizontal-container">
                 <div class="extras-container-text">
-                    FPS 
+                    <div class="fpstext">
+                        FPS 
+                    </div>
+                    <div class="fps-dropdown-container">
+                        <input type="checkbox" id="fpscheckbox">
+                        <div class="fps-dropdown-top" onclick="fpsonclick()">
+                            Select FPS
+                        </div>
+                        <div class="fps-dropdown-content" id="fps-dropdown-content-id">
+                            <ul>
+                                <li class="listitemclass" onclick="listclicked('30')">30</li>
+                                <li class="listitemclass" onclick="listclicked('60')">60</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

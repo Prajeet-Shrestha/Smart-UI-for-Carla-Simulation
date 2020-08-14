@@ -7,6 +7,14 @@ html, body{
     padding: 0;
   }
 
+.preload{
+  width: 100%;
+  height: 100vh;
+  background: #33373d  url(img/gifpreload.gif) no-repeat center;
+  z-index:9999;
+  position: fixed;
+}
+
 header{
   height: 90px;
   background: linear-gradient(145deg, #33373d, #33373d);
@@ -120,6 +128,79 @@ inset -8px -8px 16px #33373f;
   margin-top: 5px;
 }
 
+#fpscheckbox{
+  display: none;
+}
+
+.fpstext{
+  float: left;
+}
+
+.fps-dropdown-container{
+  width: 90px;
+  height: 70px;
+  float: left;
+  margin-left: 10px;
+}
+
+.fps-dropdown-top{
+  border-radius: 5px;
+  background: #26292f;
+box-shadow:  inset 8px 8px 16px #191b1f, 
+inset -8px -8px 16px #33373f;
+  padding-top: 1px;
+  padding-left: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.fps-dropdown-content{
+  display: none;
+  width: 90px;
+  height: 0px;
+  margin-top: 2px;
+  border-radius: 0px 0px 20px 20px;
+
+  
+}
+
+.fps-dropdown-content.show{
+  display: block;
+  width: 90px;
+  height: 58px;
+  margin-top: 2px;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.extras-container-text>div+div>div+div>ul{
+  list-style: none;
+  margin: 0%;
+  padding: 0%;
+  text-align: center;
+  padding-top: 5px;
+  cursor: pointer;
+
+}
+
+.extras-container-text>div+div>div+div>ul>li{
+  background-color: #191b1f;
+  margin-bottom: 2px;
+  border-radius: 10px;
+}
+
+.extras-container-text>div+div>div+div>ul>li:hover{
+  margin-bottom: 5px;
+  background-color: #202124;
+}
+
+.extras-container-text>div+div>div+div>ul>li+li:hover{
+  margin-top: 5px;
+  background-color: #202124;
+}
+
+
 .log-container{
   height: 250px;
   width: 300px;
@@ -128,9 +209,6 @@ inset -8px -8px 16px #33373f;
   float: left;
   padding: 20px 20px;
   overflow: hidden;
-  
-  
-
 }
 
 .left-eventlog{
@@ -190,6 +268,8 @@ inset -8px -8px 16px #33373f;
   position: relative;
   padding: 10px 10px;
   margin-bottom: 18px;
+  font-size: 24px;
+  font-weight: bold;
   cursor: pointer;
 }
 
